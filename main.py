@@ -1,9 +1,9 @@
 import logging
 import os
 import requests
+from urllib import parse
 
 from dotenv import load_dotenv
-
 
 logging.basicConfig(level=logging.ERROR)
 
@@ -50,10 +50,12 @@ def main():
     load_dotenv()
     bitly_token = os.getenv("BITLY_TOKEN")
     user_input = input()
+    parsed_user_input = parse.urlparse(user_input)
+    user_link = '{}{}'.format(parsed_user_input.netloc, parsed_user_input.path)
 
-    if user_input.startswith('bit.ly/'):
+    if user_link.startswith('bit.ly/'):
         try:
-            clicks_count = count_clicks(bitly_token, user_input)
+            clicks_count = count_clicks(bitly_token, user_link)
             print('Количество кликов', clicks_count)
         except requests.exceptions.HTTPError:
             print('Error in determining the number of clicks')
