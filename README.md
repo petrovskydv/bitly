@@ -12,7 +12,9 @@ Download the project and create a .env file. Create a 'BITLY_TOKEN' variable in 
 
 ## Requirements  
 '''
+
 pip install requests
 
 pip install -U python-dotenv
+
 '''
