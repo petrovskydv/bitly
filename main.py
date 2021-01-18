@@ -46,14 +46,28 @@ def count_clicks(token, link):
     return clicks_count
 
 
+def retrieve_bitlink(token, link):
+    headers = {
+        'Authorization': 'Bearer {}'.format(token),
+    }
+
+    url_template = 'https://api-ssl.bitly.com/v4/bitlinks/{bitlink}'
+    url = url_template.format(bitlink=link)
+
+    response = requests.get(url, headers=headers)
+    # response.raise_for_status()
+    logging.info(response.json())
+    return response.ok
+
+
 def main():
     load_dotenv()
     bitly_token = os.getenv("BITLY_TOKEN")
-    user_input = input()
+    user_input = input('Введите ссылку: ')
     parsed_user_input = parse.urlparse(user_input)
     user_link = '{}{}'.format(parsed_user_input.netloc, parsed_user_input.path)
 
-    if user_link.startswith('bit.ly/'):
+    if retrieve_bitlink(bitly_token, user_link):
         try:
             clicks_count = count_clicks(bitly_token, user_link)
             print('Количество кликов', clicks_count)
@@ -63,7 +77,7 @@ def main():
         try:
             bitlink = shorten_link(bitly_token, user_input)
             print('Битлинк', bitlink)
-        except requests.exceptions.HTTPError:
+        except requests.exceptions.HTTPError as e:
             print('Error getting a short link')
 
 
