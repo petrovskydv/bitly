@@ -39,7 +39,7 @@ If you enter an existing bit ly link, the result will be the number of clicks fo
 
 ## Project Goals
 
-The code is written for educational purposes on online-course for web-developers dvmn.org.
+The code is written for educational purposes on online-course for web-developers [dvmn.org](https://dvmn.org).
   
 ## License  
 
