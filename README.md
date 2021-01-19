@@ -16,25 +16,32 @@ BITLY_TOKEN=<your token>
 
   
 ### Requirements  
-  
-```
-pip install requests
-  
-pip install -U python-dotenv 
-```
-or 
+
+Python3 should be already installed. Then use pip (or pip3, if there is a conflict with Python2) to install dependencies:  
+
 ```
 pip install -r requirements.txt
 ```
   
 ### Shorten your first link!  
-  
+
+Run at the command prompt  
 ```
-python main.py
+python main.py <link>
+```
+Usage example:
+```
+python main.py https://www.google.com/
 ```
   
 You need to enter a link. A successful response will return the shortened link in the link object.  
-If you enter an existing bit ly link, the result will be the number of clicks for the entire time.  
+If you enter an existing bit ly link, the result will be the number of clicks for the entire time.
+
+## Project Goals
+
+The code is written for educational purposes on online-course for web-developers dvmn.org.
   
 ## License  
+
 This project is licensed under the MIT License - see the LICENSE file for details
+
