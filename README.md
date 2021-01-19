@@ -22,7 +22,7 @@ pip install requests
   
 pip install -U python-dotenv 
 ```
-or
+or 
 ```
 pip install -r requirements.txt
 ```
