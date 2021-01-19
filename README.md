@@ -4,7 +4,7 @@ This is a console utility for shortening links using bit.ly API. Using an existi
 
 ## Getting Started
 
-You need to create a Bitly account ([bitly])(https://bit.ly/) and get a GENERIC ACCESS TOKEN.
+You need to create a Bitly account [bitly](https://bit.ly/) and get a GENERIC ACCESS TOKEN.  
 
 ## How to run
 
