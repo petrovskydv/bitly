@@ -55,7 +55,6 @@ def retrieve_bitlink(token, link):
     url = url_template.format(bitlink=link)
 
     response = requests.get(url, headers=headers)
-    # response.raise_for_status()
     logging.info(response.json())
     return response.ok
 
