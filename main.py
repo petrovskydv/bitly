@@ -1,12 +1,10 @@
+import argparse
 import logging
 import os
-import requests
-import argparse
 from urllib import parse
 
+import requests
 from dotenv import load_dotenv
-
-logging.basicConfig(level=logging.ERROR)
 
 
 def shorten_link(token, long_url):
@@ -59,6 +57,8 @@ def retrieve_bitlink(token, link):
 
 
 def main():
+    logging.basicConfig(level=logging.ERROR)
+
     load_dotenv()
     bitly_token = os.getenv("BITLY_TOKEN")
 
